@@ -1,8 +1,10 @@
 <template>
-  <div>
-    <Menu />
-    <Header></Header>
-    <Content></Content>
+  <div class="w-full h-100% flex">
+    <Menu class="w-200px h-full" />
+    <div class="flex-1 flex flex-col h-full">
+      <Header></Header>
+      <Content></Content>
+    </div>
   </div>
 </template>
 

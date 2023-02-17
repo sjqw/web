@@ -13,6 +13,9 @@ import { presetUno, presetAttributify, presetIcons } from "unocss";
 // https://vitejs.dev/config/
 const pathSrc = path.resolve(__dirname, "src/interface");
 export default defineConfig({
+  server: {
+    port: 3000,
+  },
   plugins: [
     vue(),
     vueJsx(),
