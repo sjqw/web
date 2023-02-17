@@ -1,14 +1,22 @@
-import { createRouter, createWebHistory } from "vue-router";
-import Layout from "@/layout/index.vue";
+import {
+  createRouter,
+  // createWebHistory,
+  createWebHashHistory,
+} from "vue-router";
+import { routes } from "./routes";
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
-  routes: [
-    {
-      path: "/",
-      component: Layout,
-      children: [],
-    },
-  ],
+  history: createWebHashHistory(import.meta.env.BASE_URL),
+  scrollBehavior: (to, from, savedPosition) => {
+    if (savedPosition) {
+      return savedPosition;
+    } else {
+      return {
+        left: 0,
+        top: 0,
+      };
+    }
+  },
+  routes,
 });
 
 export default router;

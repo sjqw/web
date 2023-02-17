@@ -1,14 +1,17 @@
 {
   "extends": "@vue/tsconfig/tsconfig.web.json",
-  "include": ["env.d.ts", "src/**/*", "src/**/*.vue"],
+  "include": ["env.d.ts", "src/**/*", "src/**/*.vue", "src/**/*.tsx"],
   "compilerOptions": {
     "baseUrl": ".",
-    "types": ["element-plus/global"],
+    "types": ["element-plus/global","vite/client"],
     "paths": {
       "@/*": ["./src/*"]
     }
   },
-
+  "noImplicitAny": false,
+  "exclude": [
+    "node_modules",
+  ],
   "references": [
     {
       "path": "./tsconfig.config.json"

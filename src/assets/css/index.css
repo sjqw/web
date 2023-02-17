@@ -1,0 +1,25 @@
+:root {
+    --custom-main-color: #05f2f2;
+}
+
+/* 覆盖empty样式 */
+.el-empty {
+    --el-empty-padding: 100px 0 !important;
+}
+
+/* 自定义全局loading样式 */
+body .el-loading-mask {
+    background-color: rgba(0, 0, 0, .8);
+}
+
+/* 滚动条宽度 */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+/* 滚动条的滑块 */
+::-webkit-scrollbar-thumb {
+    background-color: var(--color-scrollbar-thumb);
+    border-radius: 8px;
+}

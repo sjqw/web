@@ -1,15 +1,31 @@
-import axios from "axios";
+import axios, { type AxiosRequestConfig, type AxiosResponse } from "axios";
 import { ElLoading, ElMessage } from "element-plus";
+import type { LoadingOptions } from "element-plus";
 import { getTokenAUTH } from "@/utils/auth";
 
+type CustomOptions = {
+  repeat_request_cancel?: boolean;
+  loading?: boolean;
+  reduct_data_format?: boolean;
+  error_message_show?: boolean;
+  code_message_show?: boolean;
+  [key: string]: any;
+};
+type LoadingInstanceType = {
+  _target: any;
+  _count: number;
+};
 const pendingMap = new Map();
-
-const LoadingInstance = {
+export const LoadingInstance: LoadingInstanceType = {
   _target: null,
   _count: 0,
 };
-
-function myAxios(axiosConfig, customOptions, loadingOptions) {
+let msgInstanc: null | Object = null;
+function myAxios(
+  axiosConfig: AxiosRequestConfig<any>,
+  customOptions?: CustomOptions,
+  loadingOptions?: LoadingOptions
+): Promise<API.Res> {
   const service = axios.create({
     baseURL: import.meta.env.VITE_API, // 设置统一的请求前缀
     timeout: 10000, // 设置统一的超时时长
@@ -22,14 +38,14 @@ function myAxios(axiosConfig, customOptions, loadingOptions) {
       loading: false, // 是否开启loading层效果, 默认为false
       reduct_data_format: true, // 是否开启简洁的数据结构响应, 默认为true
       error_message_show: true, // 是否开启接口错误信息展示,默认为true
-      code_message_show: false, // 是否开启code不为0时的信息提示, 默认为false
+      code_message_show: true, // 是否开启code不为0时的信息提示, 默认为false
     },
     customOptions
   );
 
   // 请求拦截
   service.interceptors.request.use(
-    (config) => {
+    (config: any) => {
       removePending(config);
       custom_options.repeat_request_cancel && addPending(config);
       // 创建loading实例
@@ -56,17 +72,21 @@ function myAxios(axiosConfig, customOptions, loadingOptions) {
     (response) => {
       removePending(response.config);
       custom_options.loading && closeLoading(custom_options); // 关闭loading
-
       if (
         custom_options.code_message_show &&
         response.data &&
-        response.data.code !== 0
+        response.data.code !== 200
       ) {
-        ElMessage({
-          type: "error",
-          message: response.data.message,
-        });
-        return Promise.reject(response.data); // code不等于0, 页面具体逻辑就不执行了
+        if (!msgInstanc) {
+          msgInstanc = ElMessage({
+            type: "error",
+            message: response.data.msg,
+            onClose: () => {
+              msgInstanc = null;
+            },
+          });
+        }
+        return Promise.reject(response.data); // code不等于200, 页面具体逻辑就不执行了
       }
 
       return custom_options.reduct_data_format ? response.data : response;
@@ -88,9 +108,10 @@ export default myAxios;
  * 处理异常
  * @param {*} error
  */
-function httpErrorStatusHandle(error) {
+function httpErrorStatusHandle(error: any) {
   // 处理被取消的请求
   if (axios.isCancel(error))
+    // eslint-disable-next-line no-console
     return console.error("请求的重复请求：" + error.message);
   let message = "";
   if (error && error.response) {
@@ -142,7 +163,7 @@ function httpErrorStatusHandle(error) {
   if (error.message.includes("timeout")) message = "网络请求超时！";
   if (error.message.includes("Network"))
     message = window.navigator.onLine ? "服务端异常！" : "您断网了！";
-
+  ElMessage.closeAll();
   ElMessage({
     type: "error",
     message,
@@ -153,10 +174,12 @@ function httpErrorStatusHandle(error) {
  * 关闭Loading层实例
  * @param {*} _options
  */
-function closeLoading(_options) {
+function closeLoading(_options: CustomOptions) {
   if (_options.loading && LoadingInstance._count > 0) LoadingInstance._count--;
   if (LoadingInstance._count === 0) {
-    LoadingInstance._target.close();
+    if (LoadingInstance._target) {
+      LoadingInstance._target.close();
+    }
     LoadingInstance._target = null;
   }
 }
@@ -165,7 +188,7 @@ function closeLoading(_options) {
  * 储存每个请求的唯一cancel回调, 以此为标识
  * @param {*} config
  */
-function addPending(config) {
+function addPending(config: any) {
   const pendingKey = getPendingKey(config);
   config.cancelToken =
     config.cancelToken ||
@@ -180,7 +203,7 @@ function addPending(config) {
  * 删除重复的请求
  * @param {*} config
  */
-function removePending(config) {
+function removePending(config: any) {
   const pendingKey = getPendingKey(config);
   if (pendingMap.has(pendingKey)) {
     const cancelToken = pendingMap.get(pendingKey);
@@ -194,7 +217,7 @@ function removePending(config) {
  * @param {*} config
  * @returns
  */
-function getPendingKey(config) {
+function getPendingKey(config: any) {
   let { url, method, params, data } = config;
   if (typeof data === "string") data = JSON.parse(data); // response里面返回的config.data是个字符串对象
   return [url, method, JSON.stringify(params), JSON.stringify(data)].join("&");

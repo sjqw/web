@@ -15,6 +15,7 @@ declare module '@vue/runtime-core' {
     IEpMinus: typeof import('~icons/ep/minus')['default']
     IEpPlus: typeof import('~icons/ep/plus')['default']
     Login: typeof import('./../components/core/login.vue')['default']
+    NotFound: typeof import('./../components/core/notFound.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }
