@@ -1,1 +1,5 @@
-export const api ={}
+import loginApi from "./login/index";
+
+export const { login } = {
+  ...loginApi,
+};

@@ -1,3 +1,3 @@
 export const getTokenAUTH = () => {
-  return "xxxxxxxx";
+  return "";
 };

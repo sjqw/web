@@ -1,3 +1,3 @@
 export const enum Names {
-  Result = "Result",
+  User = "User",
 }

@@ -1,5 +1,7 @@
 :root {
-    --custom-main-color: #05f2f2;
+    --custom-bc-color: #f5f5f5;
+    --content-bc-color: #fafafa;
+    --white-color: #fff;
 }
 
 /* 覆盖empty样式 */

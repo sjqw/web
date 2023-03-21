@@ -1,12 +1,24 @@
 {
   "extends": "@vue/tsconfig/tsconfig.web.json",
-  "include": ["env.d.ts", "src/**/*", "src/**/*.vue", "src/**/*.tsx"],
+  "include": [
+    "env.d.ts",
+    "src/**/*",
+    "src/**/*.vue",
+    "src/**/*.tsx"
+  ],
   "compilerOptions": {
+    "noImplicitAny": false,
     "baseUrl": ".",
-    "types": ["element-plus/global","vite/client"],
+    "types": [
+      "element-plus/global",
+      "vite/client"
+    ],
     "paths": {
-      "@/*": ["./src/*"]
-    }
+      "@/*": [
+        "./src/*"
+      ]
+    },
+    "suppressImplicitAnyIndexErrors": true
   },
   "noImplicitAny": false,
   "exclude": [
