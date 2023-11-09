@@ -12,7 +12,6 @@ export const useUserStore = defineStore(Names.User, {
   },
   getters: {},
   persist: {
-    enabled: true,
-    strategies: [{ storage: localStorage, paths: ["userInfo"] }],
+    paths: ["userInfo"],
   },
 });
