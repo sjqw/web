@@ -17,6 +17,14 @@ export default defineConfig({
   server: {
     port: 3000,
     open: false,
+    host: "0.0.0.0",
+    /* proxy: {
+      "/api": {
+        target: "http://192.168.23.30:9080/iwaf-manage/",
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ""),
+      },
+    }, */
   },
   base: "./",
   css: {
@@ -44,7 +52,9 @@ export default defineConfig({
         globalsPropValue: true,
       },
       resolvers: [
-        ElementPlusResolver(),
+        ElementPlusResolver({
+          importStyle: "sass",
+        }),
         // 自动导入图标组件
         IconsResolver({
           prefix: "Icon",
