@@ -241,11 +241,11 @@ export const routes: any[] = [
     name: "login",
     component: () => import("@/components/core/login.vue"),
   },
-  {
+  /* {
     path: "/changePwd/:id",
     name: "changePwd",
     component: () => import("@/components/core/changePwd.vue"),
-  },
+  }, */
   {
     path: "/:pathMatch(.*)",
     name: "notfound",

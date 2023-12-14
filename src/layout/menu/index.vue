@@ -10,9 +10,6 @@
     </div>
     <el-menu
       :default-active="active"
-      active-text-color="#409eff"
-      text-color="#fff"
-      background-color="#051f3a"
       class="h-full w-210px overflow-y-auto"
       :collapse="isCollapse"
       @open="handleOpen"
@@ -52,6 +49,9 @@ watch(
 );
 </script>
 <style scoped lang="less">
+:deep(.el-sub-menu__icon-arrow) {
+  font-size: 16px;
+}
 .icon-all {
   color: var(--el-color-primary);
 }

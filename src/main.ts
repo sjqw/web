@@ -1,5 +1,7 @@
 import { createApp } from "vue";
 import "@/assets/css/reset.css";
+import "@/assets/iconfont/iconfont.css";
+import "@/assets/fonts/font.css";
 import "@/assets/css/index.css";
 import type { DirectiveBinding } from "vue";
 import "uno.css";

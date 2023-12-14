@@ -1,0 +1,128 @@
+{
+  "id": "3985845",
+  "name": "iwaf-webui",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "35207380",
+      "name": "防篡改",
+      "font_class": "fangcuangai",
+      "unicode": "e7ce",
+      "unicode_decimal": 59342
+    },
+    {
+      "icon_id": "2619575",
+      "name": "趋势统计",
+      "font_class": "qushitongji",
+      "unicode": "e616",
+      "unicode_decimal": 58902
+    },
+    {
+      "icon_id": "30564116",
+      "name": "趋势",
+      "font_class": "qushi",
+      "unicode": "e617",
+      "unicode_decimal": 58903
+    },
+    {
+      "icon_id": "10581021",
+      "name": "离线",
+      "font_class": "lixian",
+      "unicode": "e65a",
+      "unicode_decimal": 58970
+    },
+    {
+      "icon_id": "30475510",
+      "name": "在线",
+      "font_class": "zaixian",
+      "unicode": "e60f",
+      "unicode_decimal": 58895
+    },
+    {
+      "icon_id": "9179249",
+      "name": "登录日志",
+      "font_class": "denglurizhi",
+      "unicode": "e63b",
+      "unicode_decimal": 58939
+    },
+    {
+      "icon_id": "31620586",
+      "name": "探针管理",
+      "font_class": "tanzhenguanli",
+      "unicode": "e7fd",
+      "unicode_decimal": 59389
+    },
+    {
+      "icon_id": "2546498",
+      "name": "日志",
+      "font_class": "rizhi",
+      "unicode": "e69d",
+      "unicode_decimal": 59037
+    },
+    {
+      "icon_id": "14046226",
+      "name": "系统设置",
+      "font_class": "xitongshezhi",
+      "unicode": "e664",
+      "unicode_decimal": 58980
+    },
+    {
+      "icon_id": "1029188",
+      "name": "列表",
+      "font_class": "list-1-copy",
+      "unicode": "e605",
+      "unicode_decimal": 58885
+    },
+    {
+      "icon_id": "13872431",
+      "name": "用户管理",
+      "font_class": "yonghuguanli",
+      "unicode": "e656",
+      "unicode_decimal": 58966
+    },
+    {
+      "icon_id": "18988164",
+      "name": "数据统计-data statistics",
+      "font_class": "shujutongji-datastatistics",
+      "unicode": "e62d",
+      "unicode_decimal": 58925
+    },
+    {
+      "icon_id": "19567458",
+      "name": "日志分析",
+      "font_class": "28rizhifenxi",
+      "unicode": "e6a1",
+      "unicode_decimal": 59041
+    },
+    {
+      "icon_id": "20617090",
+      "name": "封禁",
+      "font_class": "fengjin",
+      "unicode": "e6ab",
+      "unicode_decimal": 59051
+    },
+    {
+      "icon_id": "30224668",
+      "name": "木马/远程/病毒",
+      "font_class": "mumayuankong111",
+      "unicode": "e91d",
+      "unicode_decimal": 59677
+    },
+    {
+      "icon_id": "31174693",
+      "name": "网络攻击",
+      "font_class": "wangluogongji",
+      "unicode": "e608",
+      "unicode_decimal": 58888
+    },
+    {
+      "icon_id": "33172831",
+      "name": "审核",
+      "font_class": "shenhe",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    }
+  ]
+}

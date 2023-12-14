@@ -1,7 +1,15 @@
+$menu-bg-color: rgb(247, 248, 250);
+
 @forward "element-plus/theme-chalk/src/common/var.scss" with (
   $colors: (
     "primary": (
       // "base": #05f2f2
     )
-  )
+  ),
+  $menu: ("bg-color":$menu-bg-color,
+    "text-color":rgb(0, 0, 0),
+    "active-color":#fff,
+    "hover-bg-color":rgb(247, 248, 250),
+    "border-color":none,
+  ),
 );

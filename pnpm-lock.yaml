@@ -24,6 +24,7 @@ specifiers:
   npm-run-all: ^4.1.5
   pinia: ^2.0.21
   pinia-plugin-persist: ^1.0.0
+  pinia-plugin-persistedstate: ^3.2.0
   prettier: ^2.7.1
   sass: ^1.58.2
   terser: ^5.16.6
@@ -48,6 +49,7 @@ dependencies:
   moment: 2.29.4
   pinia: 2.0.23_lrjaoqkmph6q2hmgd3qeuy6rom
   pinia-plugin-persist: 1.0.0_pinia@2.0.23+vue@3.2.41
+  pinia-plugin-persistedstate: 3.2.0_pinia@2.0.23
   terser: 5.16.6
   vue: 3.2.41
   vue-router: 4.1.6_vue@3.2.41
@@ -2955,6 +2957,14 @@ packages:
       pinia: 2.0.23_lrjaoqkmph6q2hmgd3qeuy6rom
       vue: 3.2.41
       vue-demi: 0.12.5_vue@3.2.41
+    dev: false
+
+  /pinia-plugin-persistedstate/3.2.0_pinia@2.0.23:
+    resolution: {integrity: sha512-tZbNGf2vjAQcIm7alK40sE51Qu/m9oWr+rEgNm/2AWr1huFxj72CjvpQcIQzMknDBJEkQznCLAGtJTIcLKrKdw==}
+    peerDependencies:
+      pinia: ^2.0.0
+    dependencies:
+      pinia: 2.0.23_lrjaoqkmph6q2hmgd3qeuy6rom
     dev: false
 
   /pinia/2.0.23_lrjaoqkmph6q2hmgd3qeuy6rom:
